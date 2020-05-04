@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    ProgressBar mProgressbar;
+//    ProgressBar mProgressbar;
+    SeekBar mseekbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +36,22 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        };
 //        countDownTimer.start();
+        mseekbar=findViewById(R.id.seekbar);
+        mseekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Toast.makeText(MainActivity.this, progress + "", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 }
